@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LabAssignment10Cristobalerenchun</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="text-right">
+        <button type="button" class="btn btn-default">log in </button>
+        <button type="button" class="btn btn-default">log out</button>
+      </div>
+    </div>
+  </div>
+
+
+  <body>
+
+  <script>
+      window.fbAsyncInit = function() {
+          FB.init({
+              appId      : '{your-app-id}',
+              cookie     : true,
+              xfbml      : true,
+              version    : '{latest-api-version}'
+          });
+
+          FB.AppEvents.logPageView();
+
+      };
+
+      (function(d, s, id){
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) {return;}
+          js = d.createElement(s); js.id = id;
+          js.src = "https://connect.facebook.net/en_US/sdk.js";
+          fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+  </script>
+    <%= yield %>
+  </body>
+</html>
